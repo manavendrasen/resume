@@ -13,4 +13,4 @@ jobs:
 
     steps:
     - name: Generate
-      run: ls; make run;
+      run: ls
