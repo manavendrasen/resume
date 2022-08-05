@@ -1,4 +1,3 @@
-*.tex
 *.jpg
 *.sty
 *.aux
@@ -6,3 +5,5 @@
 *.out
 *.pdf
 *.swp
+
+.vscode
