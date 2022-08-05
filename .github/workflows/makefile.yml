@@ -11,6 +11,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
+
     steps:
+    - name: Display the path
+      run: echo $PATH
+      shell: bash 
     - name: Generate
       run: ls
+      shell: bash
