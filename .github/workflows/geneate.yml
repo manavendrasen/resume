@@ -35,4 +35,4 @@ jobs:
           token: ${{ secrets.GI_TOKEN }}
           target_url: https://aws-bucket.s3.ap-south-1.amazonaws.com/${{steps.S3.outputs.object_key}}
           state: 'success'
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}  
+          deployment_id: 1 
