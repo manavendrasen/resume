@@ -16,5 +16,5 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
             image: manavendrasen/latex
-            options: -v ${{ github.workspace }}:data manavendrasen/latex main.tex
+            options: -v ${{ github.workspace }}:/data manavendrasen/latex main.tex
         
