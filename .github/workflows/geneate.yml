@@ -25,5 +25,8 @@ jobs:
         with:
           commit_message: Update Resume
           branch: resume
-          file_pattern: '*.pdf'
+          add_options: 'Manavendra_Sen_Resume.pdf'
+          status_options: '--untracked-files'
+          skip_dirty_check: true
+          push_options: --force
           disable_globbing: true
