@@ -7,24 +7,57 @@ on:
     branches: [ "main" ]
 
 jobs:
-  Generate_Resume:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
       - name: Build
         uses: addnab/docker-run-action@v3
         with:
             image: manavendrasen/latex
             options: -v ${{ github.workspace }}:/data manavendrasen/latex Manavendra_Sen_Resume.tex
-      - name: Show Files
-        run: ls -la
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Move file to static folder
+        run: |
+          mkdir static
+          mv Manavendra_Sen_Resume.pdf static
+      - uses: shallwefootball/s3-upload-action@master
+        name: Upload S3
+        id: S3
         with:
-          commit_message: Update Resume
-          branch: resume
-          status_options: '--untracked-files'
-          skip_dirty_check: true
-          disable_globbing: true
+          aws_key_id: ${{ secrets.AWS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          aws_bucket: ${{ secrets.AWS_BUCKET }}
+          source_dir: 'static'
+          destination_dir: ''
+
+# name: 
+
+# on:
+#   push:
+#     branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
+
+# jobs:
+#   Generate_Resume:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: write
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#       - name: Build
+#         uses: addnab/docker-run-action@v3
+#         with:
+#             image: manavendrasen/latex
+#             options: -v ${{ github.workspace }}:/data manavendrasen/latex Manavendra_Sen_Resume.tex
+#       - name: Show Files
+#         run: ls -la
+#       - uses: stefanzweifel/git-auto-commit-action@v5
+#         with:
+#           commit_message: Update Resume
+#           branch: resume
+#           status_options: '--untracked-files'
+#           skip_dirty_check: true
+#           disable_globbing: true
