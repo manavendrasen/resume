@@ -17,6 +17,8 @@ jobs:
         with:
             image: manavendrasen/latex
             options: -v ${{ github.workspace }}:/data manavendrasen/latex main.tex
+      - name: Move file to static folder
+        run: mv main.pdf static
       - uses: shallwefootball/s3-upload-action@master
         name: Upload S3
         id: S3
@@ -24,7 +26,7 @@ jobs:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
-          source_dir: '.'
+          source_dir: 'static'
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@releases/v1
