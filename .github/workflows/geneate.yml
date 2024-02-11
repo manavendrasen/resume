@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -23,4 +25,4 @@ jobs:
         with:
           commit_message: Update Resume
           branch: resume
-          file_pattern: '*.pdf'
+          file_pattern: 'Manavendra_Sen_Resume.pdf'
