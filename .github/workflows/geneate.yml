@@ -20,7 +20,7 @@ jobs:
       - name: Move file to static folder
         run: |
           mkdir static
-          mv Manavendra_Sen_Resume static;
+          mv Manavendra_Sen_Resume.pdf static
       - uses: shallwefootball/s3-upload-action@master
         name: Upload S3
         id: S3
