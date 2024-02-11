@@ -6,9 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
 
-env:
-  FILE_NAME: Manavendra_Sen_Resume 
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,11 +18,11 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
             image: manavendrasen/latex
-            options: -v ${{ github.workspace }}:/data manavendrasen/latex $FILE_NAME.tex
+            options: -v ${{ github.workspace }}:/data manavendrasen/latex Manavendra_Sen_Resume.tex
       - name: Move file to static folder
         run: |
           mkdir static
-          mv $FILE_NAME.pdf static
+          mv Manavendra_Sen_Resume.pdf static
       - uses: shallwefootball/s3-upload-action@master
         name: Upload file to S3
         id: S3

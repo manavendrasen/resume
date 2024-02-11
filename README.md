@@ -26,7 +26,7 @@ To set up this workflow for your project, follow these steps:
 	```	
 2. Update the `.tex` file and push. 
 	- Configure `AWS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_BUCKET` in your Github Project Settings.
-	- Modify the env in the ci.yml to match the .tex file.
+	- Modify the filenames in the ci.yml to match the .tex file.
 
 
 ## References
