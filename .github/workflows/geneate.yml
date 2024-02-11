@@ -18,7 +18,7 @@ jobs:
             image: manavendrasen/latex
             options: -v ${{ github.workspace }}:/data manavendrasen/latex Manavendra_Sen_Resume.tex
       - name: Show Files
-        run: la -la
+        run: ls -la
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update Resume
