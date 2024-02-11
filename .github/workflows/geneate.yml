@@ -18,7 +18,7 @@ jobs:
             image: manavendrasen/latex
             options: -v ${{ github.workspace }}:/data manavendrasen/latex Manavendra_Sen_Resume.tex
       - name: Move file to static folder
-        run: mv main.pdf static
+        run: mv Manavendra_Sen_Resume.tex static
       - uses: shallwefootball/s3-upload-action@master
         name: Upload S3
         id: S3
