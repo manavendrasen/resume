@@ -6,23 +6,27 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  FILE_NAME: Manavendra_Sen_Resume 
+    
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout
+      - name: Checkout Latest Code
         uses: actions/checkout@v2
-      - name: Build
+      - name: Build PDF using manavendrasen/latex
         uses: addnab/docker-run-action@v3
         with:
             image: manavendrasen/latex
-            options: -v ${{ github.workspace }}:/data manavendrasen/latex Manavendra_Sen_Resume.tex
+            options: -v ${{ github.workspace }}:/data manavendrasen/latex $FILE_NAME.tex
       - name: Move file to static folder
         run: |
           mkdir static
-          mv Manavendra_Sen_Resume.pdf static
+          mv $FILE_NAME.pdf static
       - uses: shallwefootball/s3-upload-action@master
-        name: Upload S3
+        name: Upload file to S3
         id: S3
         with:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
@@ -31,7 +35,7 @@ jobs:
           source_dir: 'static'
           destination_dir: ''
 
-# name: 
+# name: Generate PDF
 
 # on:
 #   push:
