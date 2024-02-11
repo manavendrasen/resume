@@ -1,0 +1,5 @@
+*.aux
+*.log
+*.out
+semicolon_delimited_script
+.vscode
