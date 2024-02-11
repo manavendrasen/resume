@@ -9,12 +9,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: manavendrasen/latex
-      options: --cpus 1
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
       - name: Build
-        run: |
-          docker run --rm --volume "`pwd`:/data" manavendrasen/latex main.tex
+        uses: addnab/docker-run-action@v3
+        with:
+            image: manavendrasen/latex
+            options: -v ${{ github.workspace }}:data manavendrasen/latex main.tex
+        
