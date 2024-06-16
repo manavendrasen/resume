@@ -1,286 +1,82 @@
+\documentclass[letterpaper,11pt]{article}
 
-%---- Required Packages and Functions ----
-
-\documentclass[a4paper,11pt]{article}
+\usepackage{fontawesome5}
 \usepackage{latexsym}
-\usepackage{xcolor}
-\usepackage{float}
-\usepackage{ragged2e}
 \usepackage[empty]{fullpage}
-\usepackage{wrapfig}
-\usepackage{lipsum}
-\usepackage{tabularx}
 \usepackage{titlesec}
-\usepackage{geometry}
 \usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=blue,
-    pdftitle={Manavendra Sen Resume},
-    pdfpagemode=FullScreen,
-    }
-
+\usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
-\usepackage{multicol}
+\usepackage[english]{babel}
+\usepackage{tabularx}
 \usepackage{graphicx}
-\usepackage{cfr-lm}
-\usepackage[T1]{fontenc}
-\usepackage{fontawesome}
-\usepackage[most]{tcolorbox}
+\usepackage{mwe} % for blindtext and example-image-a in example
+\usepackage{wrapfig}
 
+\input{glyphtounicode}
 
+% Custom font
+\usepackage[default]{lato}
 
-% Set the margins
-\geometry{left=0.85cm, top=0.8cm, right=0.85cm, bottom=0.2cm}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
 
 % Sections formatting
 \titleformat{\section}{
   \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+}{}{0em}{}[\color{black}\titlerule\vspace{-5pt}]
 
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
 
-%-------------------------
+%-------------------------%
 % Custom commands
-
-\newcommand{\resumePOR}[3]{
-\vspace{0.5mm}\item[]
-    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
-    \hspace{-3mm}{#1}:\hspace{1mm} & \hspace*{0pt}\hfill{\footnotesize{ #3}} \vspace{-0.5mm}\\ \hspace{-2.9mm}#2 
-    \end{tabular*}
-    \vspace{0mm}
-}
-
-\newcommand{\resumeExp}[4]{
-\vspace{0mm}\item[]
-    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
-        \hspace{-4.4mm} \small\textbf{#1} & {\footnotesize{#3}}\vspace{-1.2mm}\\
-        \hspace{-4.3mm} \footnotesize{\text{#2}} & \footnotesize{#4}
-    \end{tabular*}
-    \vspace{-6.1mm}
-}
-
-\newcommand{\resumeProject}[4]{
-\vspace{0mm}\item[]
-    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
-        \hspace{-4.4mm} \small\textbf{#1} & {\footnotesize{#3}}\vspace{-1mm}\\
-        \hspace{-4.3mm} \footnotesize{\text{#2}} & \footnotesize{#4}
-    \end{tabular*}
-    \vspace{-6.5mm}
-}
-
-\newcommand{\resumeEdu}[4]{
-\vspace{0mm}\item[]
-    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
-        \hspace{-4.3mm} \small\textbf{#1} & \footnotesize{#3}\vspace{-1mm} \\
-        \hspace{-4.3mm} \footnotesize{#2} & \footnotesize{#4}
-    \end{tabular*}
-    \vspace{-3.2mm}
-}
-
-\newcommand{\resumeAchieve}[3]
-{
-\hspace{-3.1mm}\textbf{ #1} & {#2} & \hspace{3mm}\footnotesize{#3}
-\vspace{0mm}\\
-}
-
-
-\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=0mm,itemsep=-2.5mm]}
-
-\newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0mm]\small}
-
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-2mm}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-1.5mm}}
-
-\renewcommand{\arraystretch}{1}
-
-\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
-\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
-\newcolumntype{C}{>{\centering\arraybackslash}X}%
-%---- End of Packages and Functions ------
-
-
-
-%-------------------------------------------
-%%%%%%  CV STARTS HERE  %%%%%%%%%%%
-
-\newcommand{\name}{Manavendra Sen} % Your Name
-\newcommand{\course}{B.Tech - Information Technology} % Your Course
-% \newcommand{\roll}{199302058} % Your Roll No.
-\newcommand{\phone}{7879071212} % Your Phone Number
-\newcommand{\emaila}{manavendra4288@gmail.com} %Email 1
-\newcommand{\github}{manavendrasen} %Github
-\newcommand{\website}{https://manavendrasen.com/} %Website
-\newcommand{\linkedin}{manavendrasen} %linkedin
-
-
-
 \begin{document}
-\fontfamily{cmr}\selectfont
+\include{custom-commands}
+
+%-------------------------------------------%
+%%%%%%  RESUME STARTS HERE  %%%%%
+
+%----------HEADING----------%
+\input{src/heading}
+
+%-----------EDUCATION-----------%
+\input{src/education.tex}
+
+%-----------EXPERIENCE-----------%
+\input{src/experience}
+
+%-----------PROJECTS-----------%
+\input{src/projects}
+
+%-----------SKILLS-----------%
+\input{src/skills.tex}
+
+% %-----------ACHIEVEMENTS-----------%
+% \input{src/achievements}
+
+%-----------POR-----------%
+\input{src/social-engagements}
 
 
-%----------HEADING-----------------
-\begin{center}
-    \LARGE{\textbf{\name}}
-\end{center}
-\vspace{-6.5mm}
-\begin{center}
-    \small{\href{https://github.com/\github}{\faGithub \hspace{0.2mm} github.com/manavendrasen} |  \href{https://www.linkedin.com/in/\linkedin/}{\faLinkedinSquare \hspace{0.2mm} linkedin.com/in/manavendrasen} | \href{mailto:\emaila}{\faSend \hspace{0.2mm} \emaila} | \faPhone \hspace{0.2mm} \href{tel:\phone}{+91-\phone}}
-\end{center}
-\vspace{-3mm}
-
-%-----------EDUCATION-----------------
-
-\vspace{-2.5mm}
-\section{Education}
-
-\resumeSubHeadingListStart
-\resumeEdu
-{Manipal University Jaipur, Jaipur, India} 
-{Bachelors of Technology in Information Technology} 
-{Jul 2019 - Jun 2023} %Event Dates
-{GPA: 9.48/10.0} %Website
-\resumeSubHeadingListEnd
-\vspace{-3.5mm}
-
-%-----------EXPERIENCE-----------------
-\section{Experience}
-\resumeSubHeadingListStart
-
-\resumeExp
-{Dell Technologies}
-{Undergraduate Intern - DevOps, GITLAB CICD, Salesforce}
-{Jun 2022 - Aug 2022}
-{Hyderabad, India}
-\resumeItemListStart
-\item[$\bullet$] Identifing immediate areas of improvement to increase DevOps Efficiency through
-analysis.
-\item[$\bullet$] Implementing scheduled builds and automated code migration from one salesforce environment
-to another.
-\item[$\bullet$] Integrating MS Teams/Email notifications for CICD pipeline events and deployment status.
-
-\resumeItemListEnd
-
-\resumeExp
-{416 Marketing Inc}
-{Software Development Engineer Intern - {MERN, PostgreSQL}}
-{Jan 2022 - Mar 2022}
-{Toronto, ON, Canada}
-\resumeItemListStart
-\item[$\bullet$] Compiled client requirement documentation and devised 2 production full-stack web applications within tight deadlines.
-\item[$\bullet$] Conceptualized and streamlined the UI/UX frontend of 30+ app screens, by applying skills in colour theory and composition.
-\resumeItemListEnd
-
-
-\resumeExp
-{Listnr, Inc}
-{Software Development Engineer Intern - {React, Node.js, Express.js, MongoDB}}
-{Jul 2021 - Sept 2021}
-{Middletown, DE, USA}
-\resumeItemListStart
-\item[$\bullet$] Achieved 200+, 5-star reviews on AppSumo by implementing allows users to import podcasts from services like Spotify to Listnr and automatically generate customisable landing and promotional pages.
-\item[$\bullet$] Delivered performance-driven and user experience-centric solutions which improved user retention by 75\%.
-\item[$\bullet$] Collaborated effectively with the team to set up Sentry, which helped identify and troubleshoot bugs 60\% faster.
-\resumeItemListEnd
-
-\resumeExp
-{Design In Situ}
-{Full Stack Developer Intern - {React, Firebase}}
-{Jun 2021 - Aug 2021}
-{İstanbul, Turkey}
-\resumeItemListStart
-\item[$\bullet$] Planned and developed of music generation applications using ReactJS, Javascript, Tone.js, and Firebase with 500+ live users.
-\item[$\bullet$] Coordinated with international clients to architect, develop and deploy 20+ microsites that met all business requirements.
-\resumeItemListEnd
-
-\resumeSubHeadingListEnd
-\vspace{-5.5mm}
-
-%-----------PROJECTS-----------------
-\section{Projects}
-\resumeSubHeadingListStart
-
-\resumeProject
-{POPTALK!}
-{React, Typescript, ExpressJS, NodeJS, Material UI, React Leaflet} %Project Name, Location Name
-{Jul 2020 - Nov 2020} %Event Dates
-{\href{https://devfolio.co/projects/poptalk-d6be}{Project},  \href{https://github.com/manavendrasen/poptalk}{Github}, \href{https://youtu.be/A6l8yGgv7YY}{Demo Video}} 
-\resumeItemListStart
-\item[$\bullet$] Implemented  a full-stack website and a chrome extension in 36 hours, which helps people discover new places to visit, connect and chat with people around the location, to resolve queries about the place.
-\item[$\bullet$] Won the 1st prize at Hackstack’22, a National-Level Hackathon by IIIT Gwalior and Headout.
-\resumeItemListEnd
-
-
-\resumeProject
-{MUJ HUB - One Stop Solution for everything in Manipal!} %Project Name
-{React, React Native, Firebase, PostgreSQL, Express, Redux} %Project Name, Location Name
-{Dec 2020 - Sept 2020} %Event Dates
-{\href{https://play.google.com/store/apps/details?id=com.mujhub}{Play Store},  \href{https://www.mujhub.com/}{Website}}
-\resumeItemListStart
-\item[$\bullet$] Designed and developed the website and android app, used by more than 5000+ students daily, to get information about the hostel mess menu, order food online and manage their college attendance.
-\item[$\bullet$] Generated 20,000+ as additional revenue for the food outlets by lifting sales by more than 200\%.
-\resumeItemListEnd
-
-\resumeProject
-{Other Projects}{}{}{}
-\vspace{-3mm}
-\resumeItemListStart
-\item[$\bullet$] \textbf{Clyde Chrome Extension \raisebox{-0.3mm}{\href{https://devpost.com/software/clyde-chrome-extension}{\footnotesize\faExternalLink}} :} Clyde is a chrome extension that uses multiple NLP techniques to analyze sentiments, behavioral traits and emotional traits for Youtube videos, news articles, tweets, or even subreddits in real-time \& get meaningful insights. 
-\item[$\bullet$] \textbf{ACM Jaipur Professional Chapter Website \raisebox{-0.3mm}{\href{https://jaipur.acm.org/}{\footnotesize\faExternalLink}} :} Built and managed the Official website of ACM Jaipur Professional Chapter.
-\resumeItemListEnd
-\resumeSubHeadingListEnd
-
-\vspace{-5.5mm}
-
-\section{Achievements}
-\vspace{0.2mm}
-\resumeItemListStart
-        \item[$\bullet$]\textbf{Honourable Mentions prize at "Build The World with Dolby.io" Hackathon 2021} \\ Project Link: \href{https://devpost.com/software/kit-h54t9m}{Kit - Improve your communication skills using Artificial Intelligence}
-        \item[$\bullet$] \textbf{Silver medal winner at "The Freshworks Refresh App Challenge"  2021}\\ Project Link:  \href{https://devpost.com/software/wira}{Wira - AI-powered link repository for Freshservice}
-\resumeItemListEnd
-
-\vspace{-2.5mm}
-
-
-\section{Technical Skills}
-\vspace{0.2mm}
-
-\small{\begin{tabular*}{\textwidth}[t]{p{0.5\textwidth} p{0.5\textwidth}}
-
-\hspace{-3.1mm}{\textbf{ Programming languages:} C++, C, Java} & {\textbf{Web Technologies:} Javascript, Typescript, HTML5, CSS3} \\  
-\hspace{-3.1mm}{\textbf{ Frameworks/Libraries:} React, Node.js, Express.js, React Native
-} & {\textbf{Miscellaneous:} Git, Linux, Figma, PostgreSQL, MongoDB}
-\end{tabular*}}
-
-\vspace{-2.5mm}
-\section{Volunteering}
-\vspace{0.2mm}
-
-
-% \small{\begin{tabular*}{\textwidth}[t]{p{\textwidth}}
-% \hspace{-3.1mm}\textbf{ Computer Science: }{Data Structures and Algorithms, RDBMS, Operating Systems. Object }\\
-% \hspace{-3.1mm}\textbf{ Mathematics: }{Optimization, Discrete Maths, Probability and Random Processes, Number Theory, Linear Algebra}
-% \end{tabular*}}
-
-% \vspace{-2.5mm}
-% \section{Positions of Responsibility}
-% \vspace{-0.4mm}
-
-
-
-\resumeSubHeadingListStart
-\resumePOR{\textbf{Technical Head, IEEE Computer Society MUJ}} % Position
-{Facilitated mentorship sessions in various domains for 400+ mentees and 12 mentors.\\Mentored 200+ students on Git, and Github by organizing live workshops.}{\raisebox{0.75pt}{2021 - 2022}}
-\resumeSubHeadingListEnd
-\vspace{0mm}
-
-%-------------------------------------------
+%-------------------------------------------%
 \end{document}
-
