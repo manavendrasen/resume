@@ -3,6 +3,7 @@ name: Generate PDF
 on:
   push:
     branches: [ "main" ]
+    paths: ['src/**', 'Manavendra_Sen_Resume.tex']
   pull_request:
     branches: [ "main" ]
 

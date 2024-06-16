@@ -26,11 +26,32 @@ To set up this workflow for your project, follow these steps:
 1. Clone this repository:
    ```bash
    git clone git@github.com:manavendrasen/resume.git
+   cd resume
 	```	
 2. Update the `.tex` file and push. 
 	- Configure `AWS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_BUCKET` in your Github Project Settings.
 	- Modify the filenames in the ci.yml to match the .tex file.
 
+
+### Local Setup
+1. Clone this repository:
+   ```bash
+   git clone git@github.com:manavendrasen/resume.git
+   cd resume
+	```	
+
+2. Update the resume content and Rename the `Manavendra_Sen_Resume.tex` file to `<your-file-name>` as desired.
+
+
+3. Create the docker image
+   ```bash
+   docker build -d <your-name>/latex .
+	```	
+
+4. Create the docker image
+   ```bash
+   docker run --rm -v $(PWD):/data <your-name>/latex <your-file-name>_Resume.tex
+   ```	
 
 ## References
 - [shallwefootball/upload-s3-action](https://github.com/shallwefootball/upload-s3-action)
