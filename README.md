@@ -1,6 +1,6 @@
 # Latex Resume to PDF Workflow
 
-This project automates the process of generating a PDF resume from a LaTeX (.tex) file and updating it on an S3 bucket, providing a static URL for my website - [manavendrasen.com/resume](https://manavendrasen.com/resume)
+This project automates the process of generating a PDF resume from a LaTeX (.tex) file and updating it on an S3 bucket, providing a static URL for my website - [manavendrasen.com](https://manavendrasen.com)
 
 ## Workflow Overview
 ![image](https://github.com/manavendrasen/resume/assets/26283488/27bd39d1-8743-43d8-8c1a-50632f9f6aa5)
